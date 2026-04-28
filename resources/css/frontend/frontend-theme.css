@@ -1,0 +1,100 @@
+:root,
+html[data-theme="dark"] {
+    --font-en: "Inter", system-ui, sans-serif;
+    --font-ar: "Cairo", sans-serif;
+    --font-main: var(--font-en);
+
+    --bg: #07111f;
+    --bg-secondary: #0b1728;
+    --bg-tertiary: #10213a;
+
+    --surface: rgba(255, 255, 255, 0.05);
+    --surface-2: rgba(255, 255, 255, 0.07);
+    --surface-strong: rgba(255, 255, 255, 0.09);
+    --surface-solid: #112039;
+
+    --text: #eef7ff;
+    --text-soft: #a7bdd4;
+    --text-muted: #7e98b5;
+
+    --border: rgba(153, 194, 255, 0.12);
+    --border-strong: rgba(153, 194, 255, 0.2);
+
+    --primary: #2f6bff;
+    --primary-hover: #4c82ff;
+    --secondary: #14d8ff;
+    --secondary-hover: #57e6ff;
+
+    --success: #19c37d;
+    --warning: #f6b73c;
+    --danger: #ef5350;
+
+    --glass-bg: rgba(255, 255, 255, 0.055);
+    --glass-bg-strong: rgba(255, 255, 255, 0.10);
+    --glass-border: rgba(255, 255, 255, 0.10);
+    --glass-blur: 16px;
+
+    --shadow-sm: 0 8px 20px rgba(0, 0, 0, 0.14);
+    --shadow-md: 0 18px 40px rgba(0, 0, 0, 0.18);
+    --shadow-lg: 0 28px 60px rgba(0, 0, 0, 0.24);
+
+    --navbar-bg: rgba(7, 17, 31, 0.72);
+    --navbar-bg-scrolled: rgba(7, 17, 31, 0.90);
+
+    --hero-glow: rgba(20, 216, 255, 0.14);
+    --bg-orb-1: rgba(20, 216, 255, 0.18);
+    --bg-orb-2: rgba(47, 107, 255, 0.18);
+}
+
+html[data-theme="light"] {
+    /* الخلفية الأساسية */
+    --bg: #9fcbfb;
+    --bg-secondary: #8fc3fb;
+    --bg-tertiary: #7fb9f9;
+
+    /* الطبقات */
+    --surface: rgba(255, 255, 255, 0.18);
+    --surface-2: rgba(255, 255, 255, 0.26);
+    --surface-strong: rgba(255, 255, 255, 0.34);
+    --surface-solid: #d9ecff;
+
+    /* النصوص */
+    --text: #0d2a47;
+    --text-soft: #284967;
+    --text-muted: #4f6e8d;
+
+    /* الحدود */
+    --border: rgba(34, 86, 148, 0.14);
+    --border-strong: rgba(34, 86, 148, 0.22);
+
+    /* الألوان الرئيسية */
+    --primary: #2c67e8;
+    --primary-hover: #4179f0;
+    --secondary: #09bfe4;
+    --secondary-hover: #2dd2ef;
+
+    /* حالات */
+    --success: #0f9d73;
+    --warning: #d48a12;
+    --danger: #d94a4a;
+
+    /* الزجاجية */
+    --glass-bg: rgba(255, 255, 255, 0.16);
+    --glass-bg-strong: rgba(255, 255, 255, 0.26);
+    --glass-border: rgba(255, 255, 255, 0.22);
+    --glass-blur: 16px;
+
+    /* الظلال */
+    --shadow-sm: 0 8px 20px rgba(21, 63, 110, 0.08);
+    --shadow-md: 0 18px 40px rgba(21, 63, 110, 0.12);
+    --shadow-lg: 0 28px 60px rgba(21, 63, 110, 0.16);
+
+    /* الناف بار */
+    --navbar-bg: rgba(173, 214, 255, 0.50);
+    --navbar-bg-scrolled: rgba(173, 214, 255, 0.72);
+
+    /* الوهج والخلفية */
+    --hero-glow: rgba(9, 191, 228, 0.10);
+    --bg-orb-1: rgba(9, 191, 228, 0.14);
+    --bg-orb-2: rgba(44, 103, 232, 0.12);
+}

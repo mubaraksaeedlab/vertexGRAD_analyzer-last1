@@ -1,0 +1,291 @@
+@extends('layouts.app')
+
+@php
+    $pageTitle = 'VertexGrad Analyzer Dashboard';
+    $pageHeading = 'Analyzer Dashboard';
+    $pageSubheading = 'Track projects, analysis runs, generated reports, and issue activity across the platform.';
+@endphp
+
+@section('content')
+    <!-- Hero -->
+    <section class="relative overflow-hidden rounded-[28px] bg-gradient-to-br from-slate-950 via-slate-900 to-teal-900 px-8 py-8 text-white soft-shadow lg:px-10 lg:py-10">
+        <div class="absolute -right-16 -top-16 h-52 w-52 rounded-full bg-cyan-400/20 blur-3xl"></div>
+        <div class="absolute bottom-0 right-20 h-36 w-36 rounded-full bg-teal-400/10 blur-2xl"></div>
+
+        <div class="relative z-10 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+            <div class="max-w-3xl">
+                <div class="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-medium text-slate-100">
+                    <span class="inline-block h-2 w-2 rounded-full bg-emerald-400"></span>
+                    System Active
+                </div>
+
+                <h2 class="text-3xl font-bold leading-tight lg:text-4xl">
+                    Powerful code analysis with a refined, scalable dashboard built for the VertexGrad ecosystem.
+                </h2>
+
+                <p class="mt-4 max-w-2xl text-sm leading-7 text-slate-300 lg:text-base">
+                    Review projects, monitor analysis activity, inspect generated reports, and keep full visibility over issue detection across supported programming languages.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 sm:min-w-[340px]">
+                <div class="rounded-2xl border border-white/10 bg-white/10 p-4 backdrop-blur-md">
+                    <p class="text-xs uppercase tracking-[0.22em] text-slate-300">Supported Languages</p>
+                    <p class="mt-2 text-2xl font-bold">3</p>
+                    <p class="mt-1 text-xs text-slate-300">PHP · JavaScript · Python</p>
+                </div>
+
+                <div class="rounded-2xl border border-white/10 bg-white/10 p-4 backdrop-blur-md">
+                    <p class="text-xs uppercase tracking-[0.22em] text-slate-300">System State</p>
+                    <p class="mt-2 text-2xl font-bold">Ready</p>
+                    <p class="mt-1 text-xs text-slate-300">Core architecture is active</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
+        <div class="glass-card soft-shadow rounded-[24px] border border-white/60 p-5">
+            <div class="flex items-start justify-between">
+                <div>
+                    <p class="text-sm font-medium text-slate-500">Total Projects</p>
+                    <h3 class="mt-3 text-3xl font-bold tracking-tight text-slate-900">{{ $totalProjects }}</h3>
+                    <p class="mt-2 text-xs text-slate-400">Projects stored in the analyzer workspace</p>
+                </div>
+
+                <div class="rounded-2xl bg-teal-50 p-3 text-teal-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M6 3.75h12A2.25 2.25 0 0120.25 6v12A2.25 2.25 0 0118 20.25H6A2.25 2.25 0 013.75 18V6A2.25 2.25 0 016 3.75z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-card soft-shadow rounded-[24px] border border-white/60 p-5">
+            <div class="flex items-start justify-between">
+                <div>
+                    <p class="text-sm font-medium text-slate-500">Analysis Runs</p>
+                    <h3 class="mt-3 text-3xl font-bold tracking-tight text-slate-900">{{ $totalRuns }}</h3>
+                    <p class="mt-2 text-xs text-slate-400">Executed scans and evaluation runs</p>
+                </div>
+
+                <div class="rounded-2xl bg-cyan-50 p-3 text-cyan-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v-6m3 6V6.75m3 10.5v-3.75M4.5 19.5h15" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-card soft-shadow rounded-[24px] border border-white/60 p-5">
+            <div class="flex items-start justify-between">
+                <div>
+                    <p class="text-sm font-medium text-slate-500">Generated Reports</p>
+                    <h3 class="mt-3 text-3xl font-bold tracking-tight text-slate-900">{{ $totalReports }}</h3>
+                    <p class="mt-2 text-xs text-slate-400">JSON reports generated by the engine</p>
+                </div>
+
+                <div class="rounded-2xl bg-violet-50 p-3 text-violet-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 3.75h6l3 3v13.5H7.5A2.25 2.25 0 015.25 18V6A2.25 2.25 0 017.5 3.75z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-card soft-shadow rounded-[24px] border border-white/60 p-5">
+            <div class="flex items-start justify-between">
+                <div>
+                    <p class="text-sm font-medium text-slate-500">Detected Issues</p>
+                    <h3 class="mt-3 text-3xl font-bold tracking-tight text-slate-900">{{ $totalIssues }}</h3>
+                    <p class="mt-2 text-xs text-slate-400">Security and quality findings across scans</p>
+                </div>
+
+                <div class="rounded-2xl bg-rose-50 p-3 text-rose-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m0 3h.008v.008H12v-.008zM10.29 3.86l-7.5 13a1.5 1.5 0 001.3 2.25h15.82a1.5 1.5 0 001.3-2.25l-7.5-13a1.5 1.5 0 00-2.6 0z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <section class="mt-8 grid grid-cols-1 gap-6 xl:grid-cols-3">
+        <div class="xl:col-span-2 glass-card soft-shadow rounded-[28px] border border-white/70 p-6">
+            <div class="mb-5 flex items-center justify-between">
+                <div>
+                    <h3 class="section-title">Latest Projects</h3>
+                    <p class="section-subtitle">Recently created projects inside the analyzer platform</p>
+                </div>
+
+                <button class="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-300 hover:bg-slate-50">
+                    View All
+                </button>
+            </div>
+
+            <div class="overflow-hidden rounded-2xl border border-slate-200/80">
+                <div class="overflow-x-auto">
+                    <table class="min-w-full text-sm">
+                        <thead class="bg-slate-50 text-slate-500">
+                            <tr>
+                                <th class="px-5 py-4 text-left font-semibold">Project</th>
+                                <th class="px-5 py-4 text-left font-semibold">Status</th>
+                                <th class="px-5 py-4 text-left font-semibold">Created At</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white">
+                            @forelse($latestProjects as $project)
+                                <tr class="table-row-hover border-t border-slate-100 transition">
+                                    <td class="px-5 py-4">
+                                        <div>
+                                            <p class="font-semibold text-slate-800">{{ $project->name }}</p>
+                                            <p class="mt-1 text-xs text-slate-400">Project ID: #{{ $project->id }}</p>
+                                        </div>
+                                    </td>
+                                    <td class="px-5 py-4">
+                                        @php
+                                            $status = strtolower($project->scan_status ?? 'unknown');
+                                            $statusClasses = match ($status) {
+                                                'completed' => 'bg-emerald-50 text-emerald-700',
+                                                'running' => 'bg-blue-50 text-blue-700',
+                                                'pending' => 'bg-amber-50 text-amber-700',
+                                                'failed' => 'bg-rose-50 text-rose-700',
+                                                default => 'bg-slate-100 text-slate-600',
+                                            };
+
+                                            $dotClasses = match ($status) {
+                                                'completed' => 'bg-emerald-500',
+                                                'running' => 'bg-blue-500',
+                                                'pending' => 'bg-amber-500',
+                                                'failed' => 'bg-rose-500',
+                                                default => 'bg-slate-400',
+                                            };
+                                        @endphp
+
+                                        <span class="status-badge {{ $statusClasses }}">
+                                            <span class="status-dot {{ $dotClasses }}"></span>
+                                            {{ ucfirst($project->scan_status ?? 'unknown') }}
+                                        </span>
+                                    </td>
+                                    <td class="px-5 py-4 text-slate-600">
+                                        {{ optional($project->created_at)->format('Y-m-d h:i A') }}
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="3" class="px-5 py-10 text-center text-slate-400">
+                                        No projects found yet.
+                                    </td>
+                                </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-card soft-shadow rounded-[28px] border border-white/70 p-6">
+            <div class="mb-5">
+                <h3 class="section-title">System Summary</h3>
+                <p class="section-subtitle">Quick overview of analyzer readiness</p>
+            </div>
+
+            <div class="space-y-4">
+                <div class="rounded-2xl border border-slate-200 bg-slate-50/70 p-4">
+                    <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Analyzer Engine</p>
+                    <p class="mt-2 text-lg font-bold text-slate-900">Operational</p>
+                    <p class="mt-1 text-sm text-slate-500">Core analysis pipeline is active and ready.</p>
+                </div>
+
+                <div class="rounded-2xl border border-slate-200 bg-slate-50/70 p-4">
+                    <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Language Support</p>
+                    <div class="mt-3 flex flex-wrap gap-2">
+                        <span class="rounded-full bg-teal-50 px-3 py-1 text-xs font-semibold text-teal-700">PHP</span>
+                        <span class="rounded-full bg-cyan-50 px-3 py-1 text-xs font-semibold text-cyan-700">JavaScript</span>
+                        <span class="rounded-full bg-violet-50 px-3 py-1 text-xs font-semibold text-violet-700">Python</span>
+                    </div>
+                </div>
+
+                <div class="rounded-2xl border border-slate-200 bg-slate-50/70 p-4">
+                    <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Architecture</p>
+                    <p class="mt-2 text-sm leading-6 text-slate-600">
+                        Modular structure with analyzers, registry, detection service, orchestrator, scoring, and reporting layers.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Runs -->
+    <section class="mt-6 glass-card soft-shadow rounded-[28px] border border-white/70 p-6">
+        <div class="mb-5 flex items-center justify-between">
+            <div>
+                <h3 class="section-title">Latest Analysis Runs</h3>
+                <p class="section-subtitle">Most recent analysis activity across projects</p>
+            </div>
+
+            <button class="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-300 hover:bg-slate-50">
+                Open Runs
+            </button>
+        </div>
+
+        <div class="overflow-hidden rounded-2xl border border-slate-200/80">
+            <div class="overflow-x-auto">
+                <table class="min-w-full text-sm">
+                    <thead class="bg-slate-50 text-slate-500">
+                        <tr>
+                            <th class="px-5 py-4 text-left font-semibold">Run</th>
+                            <th class="px-5 py-4 text-left font-semibold">Status</th>
+                            <th class="px-5 py-4 text-left font-semibold">Issues</th>
+                            <th class="px-5 py-4 text-left font-semibold">Started At</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white">
+                        @forelse($latestRuns as $run)
+                            <tr class="table-row-hover border-t border-slate-100 transition">
+                                <td class="px-5 py-4 font-semibold text-slate-800">#{{ $run->id }}</td>
+                                <td class="px-5 py-4">
+                                    @php
+                                        $runStatus = strtolower($run->status ?? 'unknown');
+                                        $runStatusClasses = match ($runStatus) {
+                                            'completed' => 'bg-emerald-50 text-emerald-700',
+                                            'running' => 'bg-blue-50 text-blue-700',
+                                            'pending' => 'bg-amber-50 text-amber-700',
+                                            'failed' => 'bg-rose-50 text-rose-700',
+                                            default => 'bg-slate-100 text-slate-600',
+                                        };
+
+                                        $runDotClasses = match ($runStatus) {
+                                            'completed' => 'bg-emerald-500',
+                                            'running' => 'bg-blue-500',
+                                            'pending' => 'bg-amber-500',
+                                            'failed' => 'bg-rose-500',
+                                            default => 'bg-slate-400',
+                                        };
+                                    @endphp
+
+                                    <span class="status-badge {{ $runStatusClasses }}">
+                                        <span class="status-dot {{ $runDotClasses }}"></span>
+                                        {{ ucfirst($run->status ?? 'unknown') }}
+                                    </span>
+                                </td>
+                                <td class="px-5 py-4 text-slate-700">{{ $run->issues_found ?? 0 }}</td>
+                                <td class="px-5 py-4 text-slate-600">
+                                    {{ optional($run->started_at ?? $run->created_at)->format('Y-m-d h:i A') }}
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="4" class="px-5 py-10 text-center text-slate-400">
+                                    No analysis runs available yet.
+                                </td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+@endsection
