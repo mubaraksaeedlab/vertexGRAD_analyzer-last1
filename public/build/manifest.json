@@ -1,0 +1,41 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-CKaT-F-5.css",
+    "src": "resources/css/app.css",
+    "isEntry": true,
+    "name": "app",
+    "names": [
+      "app.css"
+    ]
+  },
+  "resources/css/frontend/frontend-base.css": {
+    "file": "assets/frontend-base-DOPy80Ey.css",
+    "src": "resources/css/frontend/frontend-base.css",
+    "isEntry": true,
+    "name": "frontend-base",
+    "names": [
+      "frontend-base.css"
+    ]
+  },
+  "resources/css/frontend/frontend-theme.css": {
+    "file": "assets/frontend-theme-H9kMoH0r.css",
+    "src": "resources/css/frontend/frontend-theme.css",
+    "isEntry": true,
+    "name": "frontend-theme",
+    "names": [
+      "frontend-theme.css"
+    ]
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-taXXq4rK.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  },
+  "resources/js/frontend/frontend-core.js": {
+    "file": "assets/frontend-core-DYSgFlso.js",
+    "name": "frontend-core",
+    "src": "resources/js/frontend/frontend-core.js",
+    "isEntry": true
+  }
+}
