@@ -1105,7 +1105,7 @@
 
                     @if($isIntegratedRequest)
                         <input type="hidden" name="platform_project_id" value="{{ $prefillPlatformProjectId }}">
-                        <input type="hidden" name="callback_url" value="http://127.0.0.1:8001/api/scanner/callback">
+                        <input type="hidden" name="callback_url" value="{{ env('SCANNER_CALLBACK_URL') }}">
                     @endif
 
                     @if($isIntegratedRequest)
