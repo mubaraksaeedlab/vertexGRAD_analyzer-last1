@@ -819,7 +819,7 @@
 
                     @if($project->integration_mode === 'vertexgrad' && $project->platform_project_id)
                         <div class="mt-5 text-center">
-                            <a href="http://127.0.0.1:8001/dashboard/academic"
+                            <a href="{{ env('BACK_TO_MAIN_PLATFORM_URL') }}"
                                style="
                                     display:inline-flex;
                                     align-items:center;
